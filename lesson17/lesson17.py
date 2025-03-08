@@ -30,7 +30,6 @@ if st.checkbox("check me to show some text"):
             1 / 0
         except Exception as e:
             st.exception(e)
-
 # The calculator functions and main logic should be defined outside the button condition
 def calculate(num1, num2, operation):
     if operation == 'Add':

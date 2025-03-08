@@ -43,7 +43,6 @@ def main():
     surname = st.text_input("Enter your surname")
     age = st.number_input("Enter your age", min_value=0, value=18)
     height = st.number_input("Enter your height (in cm)", min_value=0, value=170)
-
     if st.button("Submit"):
         # Display a message with the entered details
         st.write(f"Hello {name} {surname}!")
