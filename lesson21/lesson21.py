@@ -24,3 +24,7 @@ def get_item(item_id: int):
 def get_user(user_id: int):
     return{'user_id': user_id, 'name': 'John Doe'}
 
+@app.put('/items/{item_id}')
+def update_item(item_id: int, name: str, price: float):
+    return{"item_id": item_id, "name": name, "price": price}
+
