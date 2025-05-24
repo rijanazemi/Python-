@@ -9,3 +9,17 @@ app=FastAPI()
 @app.get("/")
 def root():
     return {"message": "Hello World"}
+
+@app.get('/items/')
+def read_items():
+    return {"Items":["Item1,""Item2","Item3" ]}
+
+
+
+@app.get('/items/{item_id}')
+def get_item(item_id: int):
+    return{'item_id': item_id}
+
+@app.get('/items/{user_id}')
+def get_user(user_id: int):
+    return{'user_id': user_id, 'name': 'John Doe'}
