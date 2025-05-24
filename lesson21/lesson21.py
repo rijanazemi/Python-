@@ -23,3 +23,4 @@ def get_item(item_id: int):
 @app.get('/items/{user_id}')
 def get_user(user_id: int):
     return{'user_id': user_id, 'name': 'John Doe'}
+
