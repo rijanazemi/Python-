@@ -3,3 +3,9 @@ def get_fullname(first_name: str, last_name: str):
     return full_name
 
 print(get_fullname(first_name="john", last_name="doe"))
+
+from fastapi import FastAPI
+app=FastAPI()
+@app.get("/")
+def root():
+    return {"message": "Hello World"}
