@@ -1,19 +1,13 @@
 import sqlite3
-from fileinput import close
-from tkinter.font import names
 from typing import List
 from streamlit import status
-
-from database.join_example import cursor
-from database.main import connection
-
-form models.category import Category, CategoryCreate
-from database import get_db_connection
+from ..models.category import Category, CategoryCreate
+from ..database import get_db_connection
 from fastapi import APIRouter, HTTPException
 
 router = APIRouter()
 
-@router.get("/categories/", response_modek=List[Category])
+@router.get("/categories/", response_model=List[Category])
 def get_categories():
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -48,7 +42,7 @@ def create_category(category: CategoryCreate):
             detail=f"An error occurred: {e}"
         )
     finally:
-        close()
+        conn.close()
 
 @router.put('/categories/{category_id}', response_model=Category)
 def update_category(category_id: int, category: CategoryCreate):
