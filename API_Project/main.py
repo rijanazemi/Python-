@@ -1,6 +1,4 @@
 from fastapi import FastAPI
-
-from database.join_example import cursor
 from routers import recipes, categories
 import os
 from dotenv import load_dotenv

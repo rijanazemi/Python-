@@ -4,9 +4,6 @@ import pandas as pd
 from dotenv import load_dotenv
 import os
 
-from unicodedata import category
-
-from lesson19.lesson19 import selected_Year
 
 load_dotenv()
 
@@ -98,7 +95,7 @@ if selected_menu == "Dashboard":
     else:
         st.info("No Categories found")
 
-elif selected_menu == "Manage Recipes":
+elif selected_menu == "Manage Recipe":
     st.header("Manage Recipes")
 
     st.subheader("Add a New Recipe")
@@ -107,7 +104,7 @@ elif selected_menu == "Manage Recipes":
     recipe_ingredients = st.text_area("Ingredients", key="new_recipe_ingredients")
     recipe_instructions = st.text_area("Instructions", key="new_recipe_instructions")
     recipe_cuisine = st.text_input("Cuisine", key="new_recipe_cuisine")
-    recipe_difficulty = st.selectbox("Difficulty", key="new_recipe_difficulty")
+    recipe_difficulty = st.selectbox("Difficulty", ["Easy","Medium","Hard"], key="new_recipe_difficulty")
 
     category_list = get_categories()
     if category_list:

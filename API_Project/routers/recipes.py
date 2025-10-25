@@ -1,10 +1,3 @@
-from turtledemo.sorting_animate import instructions1
-
-from loni import result
-from unicodedata import category
-
-from database.join_example import cursor
-
 from fastapi import APIRouter, HTTPException
 from typing import List
 from models.recipe import Recipe, RecipeCreate
@@ -20,7 +13,7 @@ def category_exists(category_id: int) -> bool:
     conn.close()
     return results is not None
 
-@router.get("/recipes/", response_mode=List[Recipe])
+@router.get("/recipes/", response_model=List[Recipe])
 def get_recipes(cuisine: str = None, difficulty: str = None):
     conn = get_db_connection()
     cursor = conn.cursor()
