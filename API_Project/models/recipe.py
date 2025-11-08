@@ -5,8 +5,8 @@ class RecipeBase(BaseModel):
     name: str
     description: Optional[str] = None
     ingredients: str
-    instruction: str
-    cuisine:str
+    instructions: str
+    cuisine: str
     difficulty: str
     category_id: Optional[int] = None
 
@@ -15,4 +15,3 @@ class RecipeCreate(RecipeBase):
 
 class Recipe(RecipeBase):
     id: int
-

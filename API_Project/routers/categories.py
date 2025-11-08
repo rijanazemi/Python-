@@ -28,7 +28,7 @@ def create_category(category: CategoryCreate):
         cursor.execute("INSERT INTO categories(name) VALUES (?)", (category.name,))
         conn.commit()
         category_id = cursor.lastrowid
-        return Category (id=category_id, name=category.name)
+        return Category(id=category_id, name=category.name)
     except sqlite3.IntegrityError:
         conn.close()
         raise HTTPException(
@@ -55,14 +55,14 @@ def update_category(category_id: int, category: CategoryCreate):
         raise HTTPException(status_code=404, detail="Category not found")
     conn.commit()
     conn.close()
-    return Category(id= category_id, name = category.name)
+    return Category(id = category_id, name = category.name)
 
 @router.delete("/categories/{category_id}", response_model=dict)
 def delete_category(category_id: int):
     conn = get_db_connection()
     cursor = conn.cursor()
 
-    cursor.execute("DELETE FROM categories WHERE id = ?", (category_id))
+    cursor.execute("DELETE FROM categories WHERE id = ? ", (category_id,))
     if cursor.rowcount == 0:
         conn.close()
         raise HTTPException(status_code=404, detail="Category not found")

@@ -31,7 +31,7 @@ def startup():
                 name TEXT NOT NULL,
                 description TEXT,
                 ingredients TEXT,
-                instruction TEXT,
+                instructions TEXT,
                 cuisine TEXT,
                 difficulty TEXT,
                 category_id INTEGER,
@@ -45,6 +45,3 @@ def startup():
 @app.get('/')
 def read_root():
     return {"message": "FastAPI with SQLite project"}
-
-
-
